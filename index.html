@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1017" />
+  <title>Web Strike — FPS</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="game"></div>
+
+  <div id="hud" class="hidden">
+    <div class="topbar">
+      <div class="team blue">CT <strong id="scoreBlue">0</strong></div>
+      <div class="round-box">
+        <span id="roundLabel">ROUND 1</span>
+        <strong id="timer">01:30</strong>
+      </div>
+      <div class="team red"><strong id="scoreRed">0</strong> T</div>
+    </div>
+
+    <div id="killfeed"></div>
+    <div id="damageFlash"></div>
+
+    <div class="crosshair" aria-hidden="true">
+      <span class="crosshair-dot"></span>
+      <span class="crosshair-line top"></span>
+      <span class="crosshair-line right"></span>
+      <span class="crosshair-line bottom"></span>
+      <span class="crosshair-line left"></span>
+    </div>
+
+    <div id="hitmarker" aria-hidden="true">×</div>
+
+    <div class="status-panel">
+      <div class="stat"><span class="icon">♥</span><strong id="health">100</strong></div>
+      <div class="stat"><span class="icon">◆</span><strong id="armor">100</strong></div>
+    </div>
+
+    <div class="ammo-panel">
+      <span class="weapon-name">VX-47</span>
+      <div><strong id="ammo">30</strong><span class="reserve"> / <span id="reserve">90</span></span></div>
+      <span id="reloadText" class="reload-text"></span>
+    </div>
+
+    <div class="help">WASD mover · mouse mirar · clique atirar · R recarregar · Shift correr · Espaço pular</div>
+  </div>
+
+  <div id="menu" class="overlay visible">
+    <div class="panel">
+      <div class="eyebrow">FPS WEB 3D</div>
+      <h1>WEB <span>STRIKE</span></h1>
+      <p>Um FPS tático inspirado no ritmo dos clássicos competitivos, feito para rodar direto no navegador.</p>
+      <button id="playButton">ENTRAR NA PARTIDA</button>
+      <div class="controls-grid">
+        <div><b>WASD</b><span>Movimento</span></div>
+        <div><b>MOUSE</b><span>Mira</span></div>
+        <div><b>CLICK</b><span>Disparo</span></div>
+        <div><b>R</b><span>Recarregar</span></div>
+      </div>
+      <small>Versão inicial: partida offline contra bots. Multiplayer será a próxima camada.</small>
+    </div>
+  </div>
+
+  <div id="roundOverlay" class="round-overlay hidden">
+    <strong id="roundResult"></strong>
+    <span id="roundSubtext"></span>
+  </div>
+
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
